@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CivicPulse — Smart Civic Engagement Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ TOP NAV ============ -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand" style="cursor:pointer" id="brand-home">
+      <span class="brand-seal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#10233F" stroke-width="2.2"><path d="M12 2l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 16.3l-5.5 2.9 1-6.2L3 8.6l6.2-.9L12 2z"/></svg>
+      </span>
+      CivicPulse
+    </div>
+    <nav class="nav-tabs" id="main-nav">
+      <button class="nav-tab active" data-nav="landing">Home</button>
+      <button class="nav-tab" data-nav="public">Public</button>
+      <button class="nav-tab" data-nav="government">Government</button>
+      <button class="nav-tab" data-nav="worker">Worker</button>
+    </nav>
+    <div class="topbar-right" id="topbar-right">
+      <button class="btn btn-outline btn-sm" style="border-color:rgba(255,255,255,0.4);color:#fff" id="btn-login">Log in</button>
+      <button class="btn btn-amber btn-sm" id="btn-signup">Get started</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ LANDING VIEW ============ -->
+<main id="view-landing">
+  <div id="landing-disaster-alert" class="hidden"></div>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">AI-powered municipal complaint management</p>
+        <h1>Report it once. Watch the city fix it.</h1>
+        <p class="lead">CivicPulse merges duplicate reports with crowd confirmation, ranks issues by real urgency near schools and hospitals, and closes the loop with photo-verified resolutions — for citizens, government, and field workers alike.</p>
+        <div class="hero-actions">
+          <button class="btn btn-amber" data-nav="public">Report an issue</button>
+          <button class="btn btn-outline" style="border-color:rgba(255,255,255,0.5);color:#fff" data-nav="government">Government login</button>
+        </div>
+        <div class="stat-row">
+          <div class="stat-block"><div class="num" id="landing-stat-total">–</div><div class="lbl">Reports logged</div></div>
+          <div class="stat-block"><div class="num" id="landing-stat-verified">–</div><div class="lbl">Verified fixes</div></div>
+          <div class="stat-block"><div class="num" id="landing-stat-critical">–</div><div class="lbl">Critical open</div></div>
+        </div>
+      </div>
+      <div class="role-cards">
+        <div class="role-card" data-nav="public">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#10233F" stroke-width="2"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div><h4>Public Portal</h4><p>Report issues, track status, verify fixes, earn recognition</p></div>
+          <span class="go">→</span>
+        </div>
+        <div class="role-card" data-nav="government">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#10233F" stroke-width="2"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></div>
+          <div><h4>Government Dashboard</h4><p>Secure login · assign work · monitor the whole city</p></div>
+          <span class="go">→</span>
+        </div>
+        <div class="role-card" data-nav="worker">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#10233F" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.4-3.4a5 5 0 01-6.4 6.4L4.6 22.4a2 2 0 01-2.8-2.8L11.9 9.5a5 5 0 016.4-6.4l-3.4 3.4z"/></svg></div>
+          <div><h4>Field Worker Portal</h4><p>See assigned tasks · submit proof · request support</p></div>
+          <span class="go">→</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">How the AI helps</p>
+        <h2>Four automated layers, one accountable pipeline</h2>
+        <p>Every report flows through detection, scoring, dispatch, and verification — visible to citizens, officials, and workers in real time.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="num-badge">1</div>
+          <h4>Duplicate detection</h4>
+          <p>New reports are matched by location and description similarity. Matches merge into crowd confirmations instead of cluttering the queue.</p>
+        </div>
+        <div class="feature-card">
+          <div class="num-badge">2</div>
+          <h4>Priority scoring</h4>
+          <p>Issues near schools and hospitals, with more confirmations or longer wait times, automatically rise to Critical or High.</p>
+        </div>
+        <div class="feature-card">
+          <div class="num-badge">3</div>
+          <h4>Heat map &amp; dispatch</h4>
+          <p>Officials see hotspots live on a map and assign the nearest available worker to a region in one click.</p>
+        </div>
+        <div class="feature-card">
+          <div class="num-badge">4</div>
+          <h4>Verified resolution</h4>
+          <p>Workers submit after-photos; citizens confirm the fix before a case closes, with points and titles awarded on both sides.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Live activity</p>
+        <h2>City heat map</h2>
+        <p>Open, in-progress, and verified reports across the city, updated in real time.</p>
+      </div>
+      <div id="landing-heatmap"></div>
+      <div class="map-legend">
+        <span><i style="background:#5B6672"></i>Pending</span>
+        <span><i style="background:#2C63C7"></i>Assigned</span>
+        <span><i style="background:#6B4FBB"></i>In progress</span>
+        <span><i style="background:#C6821E"></i>Resolved</span>
+        <span><i style="background:#2F8F5B"></i>Verified</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ AUTH MODAL ============ -->
+<div class="modal-overlay hidden" id="auth-modal">
+  <div class="modal" style="position:relative">
+    <button class="btn btn-ghost btn-sm modal-close" id="auth-close">✕</button>
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-auth-tab="login">Log in</button>
+      <button class="auth-tab" data-auth-tab="register">Create account</button>
+    </div>
+
+    <!-- Role switch (which portal you're authenticating for) -->
+    <div class="role-switch" id="auth-role-switch">
+      <button class="active" data-role="public">Citizen</button>
+      <button data-role="worker">Worker</button>
+      <button data-role="government">Government</button>
+    </div>
+
+    <div id="auth-alert-slot"></div>
+
+    <!-- LOGIN FORM -->
+    <form id="login-form">
+      <div class="form-group">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" required placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" required placeholder="••••••••">
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">Log in</button>
+      <p class="field-hint" style="text-align:center;margin-top:14px" id="login-demo-hint"></p>
+    </form>
+
+    <!-- REGISTER FORM -->
+    <form id="register-form" class="hidden">
+      <div class="form-group">
+        <label for="reg-name">Full name</label>
+        <input type="text" id="reg-name" required placeholder="Jane Citizen">
+      </div>
+      <div class="form-group">
+        <label for="reg-email">Email</label>
+        <input type="email" id="reg-email" required placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label for="reg-password">Password</label>
+        <input type="password" id="reg-password" required minlength="6" placeholder="At least 6 characters">
+      </div>
+      <div class="form-group hidden" id="reg-region-group">
+        <label for="reg-region">Assigned region / zone</label>
+        <select id="reg-region"></select>
+      </div>
+      <div class="form-group hidden" id="reg-invite-group">
+        <label for="reg-invite">Access code</label>
+        <input type="text" id="reg-invite" placeholder="Provided by your department">
+        <p class="field-hint" id="reg-invite-hint"></p>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">Create account</button>
+    </form>
+  </div>
+</div>
+
+<!-- ============ PUBLIC PORTAL ============ -->
+<div id="view-public" class="hidden">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="side-section-label">Public portal</div>
+      <button class="side-link active" data-pv="report">📝 Report an issue</button>
+      <button class="side-link" data-pv="mine">📋 My reports</button>
+      <button class="side-link" data-pv="feed">🗺️ City feed &amp; heat map</button>
+      <button class="side-link" data-pv="reputation">🏅 My reputation</button>
+      <button class="side-link" data-pv="leaderboard">🏆 Leaderboard</button>
+      <button class="side-link" data-pv="disaster">⛈️ Weather &amp; disaster alerts</button>
+    </aside>
+    <div class="main-panel">
+
+      <!-- Report -->
+      <section id="pv-report">
+        <div class="panel-head"><div><h2>Report a civic issue</h2><p style="margin:0">Add a photo and pin the location — we'll check for existing reports nearby.</p></div></div>
+        <div class="grid-2">
+          <div class="card">
+            <div id="report-alert-slot"></div>
+            <form id="report-form">
+              <div class="form-group">
+                <label for="rp-title">Title</label>
+                <input type="text" id="rp-title" required placeholder="e.g. Overflowing garbage bin">
+              </div>
+              <div class="form-group">
+                <label for="rp-category">Category</label>
+                <select id="rp-category" required>
+                  <option value="garbage">Garbage / waste</option>
+                  <option value="pothole">Pothole</option>
+                  <option value="streetlight">Broken streetlight</option>
+                  <option value="water_leakage">Water leakage</option>
+                  <option value="drainage">Blocked drainage</option>
+                  <option value="electrical_hazard">Electrical hazard</option>
+                  <option value="road_damage">Road damage</option>
+                  <option value="encroachment">Encroachment</option>
+                  <option value="stray_animals">Stray animals</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="rp-desc">Description</label>
+                <textarea id="rp-desc" required placeholder="Describe what you see, since when, and any safety risk"></textarea>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="rp-lat">Latitude</label>
+                  <input type="text" id="rp-lat" required placeholder="13.0827">
+                </div>
+                <div class="form-group">
+                  <label for="rp-lng">Longitude</label>
+                  <input type="text" id="rp-lng" required placeholder="80.2707">
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline btn-sm" id="btn-use-location" style="margin-bottom:16px">📍 Use my current location</button>
+              <div class="form-group">
+                <label for="rp-address">Address / landmark (optional)</label>
+                <input type="text" id="rp-address" placeholder="Street, area">
+              </div>
+              <div class="form-group">
+                <label for="rp-region">Service zone</label>
+                <select id="rp-region" required>
+                  <option value="Central Zone">Central Zone</option>
+                  <option value="North Zone">North Zone</option>
+                  <option value="South Zone">South Zone</option>
+                  <option value="East Zone">East Zone</option>
+                  <option value="West Zone">West Zone</option>
+                </select>
+                <p class="field-hint">Lets officials request help from another area when the local crew is unavailable.</p>
+              </div>
+              <div class="form-group">
+                <label>Photo evidence</label>
+                <div class="file-drop" id="rp-photo-drop">Click to add a photo</div>
+                <input type="file" id="rp-photo" accept="image/*" class="hidden">
+              </div>
+              <button class="btn btn-primary btn-block" type="submit" id="rp-submit-btn">Submit report</button>
+            </form>
+          </div>
+          <div class="card">
+            <h3>What happens next</h3>
+            <p style="font-size:0.86rem">1. We scan open reports within ~120m using the same category and similar wording.</p>
+            <p style="font-size:0.86rem">2. A match merges your report in as a crowd confirmation — no duplicate ticket, and the issue's priority rises.</p>
+            <p style="font-size:0.86rem">3. New issues get an AI priority score based on category severity, proximity to schools/hospitals, and how long they've waited.</p>
+            <p style="font-size:0.86rem">4. Once a worker marks it resolved, you'll be asked to confirm with a rating before it's closed.</p>
+            <div id="report-map" style="height:220px;border-radius:10px;overflow:hidden;border:1px solid var(--line);margin-top:12px"></div>
+            <p class="field-hint">Click the map to set your report's location.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- My reports -->
+      <section id="pv-mine" class="hidden">
+        <div class="panel-head"><div><h2>My reports</h2><p style="margin:0">Track status and confirm resolutions.</p></div>
+          <button class="btn btn-outline btn-sm" id="btn-refresh-mine">Refresh</button>
+        </div>
+        <div id="mine-list"></div>
+      </section>
+
+      <!-- City feed -->
+      <section id="pv-feed" class="hidden">
+        <div class="panel-head"><div><h2>City feed &amp; heat map</h2><p style="margin:0">Confirm issues you're also experiencing to boost their priority.</p></div>
+          <select id="feed-category-filter" style="width:auto">
+            <option value="">All categories</option>
+            <option value="garbage">Garbage / waste</option>
+            <option value="pothole">Pothole</option>
+            <option value="streetlight">Streetlight</option>
+            <option value="water_leakage">Water leakage</option>
+            <option value="drainage">Drainage</option>
+            <option value="electrical_hazard">Electrical hazard</option>
+            <option value="road_damage">Road damage</option>
+            <option value="encroachment">Encroachment</option>
+            <option value="stray_animals">Stray animals</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div id="pv-heatmap" style="margin-bottom:18px"></div>
+        <div class="map-legend" style="margin-bottom:18px">
+          <span><i style="background:#5B6672"></i>Pending</span>
+          <span><i style="background:#2C63C7"></i>Assigned</span>
+          <span><i style="background:#6B4FBB"></i>In progress</span>
+          <span><i style="background:#C6821E"></i>Resolved</span>
+          <span><i style="background:#2F8F5B"></i>Verified</span>
+        </div>
+        <div id="feed-list"></div>
+      </section>
+
+      <!-- Reputation -->
+      <section id="pv-reputation" class="hidden">
+        <div class="panel-head"><h2>My reputation</h2></div>
+        <div class="grid-2">
+          <div class="card" id="reputation-card"></div>
+          <div class="card">
+            <h3>How points work</h3>
+            <table>
+              <tr><td>Report a new (non-duplicate) issue</td><td>+5 pts</td></tr>
+              <tr><td>Confirm an existing issue nearby</td><td>+2 pts</td></tr>
+              <tr><td>Verify a resolved report as fixed</td><td>+10 pts</td></tr>
+            </table>
+            <p class="field-hint">Titles: New Citizen → Active Citizen → Civic Contributor (50 pts) → Clean City Champion (100 pts) → Civic Hero (200 pts).</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leaderboard -->
+      <section id="pv-leaderboard" class="hidden">
+        <div class="panel-head"><h2>Leaderboard</h2></div>
+        <div class="grid-2">
+          <div class="card"><h3>Top citizens</h3><div id="leaderboard-citizens"></div></div>
+          <div class="card"><h3>Top field workers</h3><div id="leaderboard-workers"></div></div>
+        </div>
+      </section>
+
+      <!-- Weather & disaster prevention -->
+      <section id="pv-disaster" class="hidden">
+        <div class="panel-head"><div><h2>Weather &amp; disaster alerts</h2><p style="margin:0">A live short-range forecast for the city, so you know what to expect before it hits your street.</p></div>
+          <button class="btn btn-outline btn-sm" id="btn-refresh-pv-disaster">Refresh</button>
+        </div>
+        <div id="pv-disaster-banner"></div>
+        <div class="card">
+          <h3>5-day outlook</h3>
+          <div id="pv-disaster-forecast" class="forecast-strip"></div>
+        </div>
+        <div class="card">
+          <h3>Locations to watch nearby</h3>
+          <p class="field-hint">Schools and hospitals with unresolved drainage, pothole, or leakage reports close by — worth a report if you spot one.</p>
+          <div id="pv-disaster-zones"></div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============ GOVERNMENT PORTAL ============ -->
+<div id="view-government" class="hidden">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="side-section-label">Government dashboard</div>
+      <button class="side-link active" data-gv="overview">📊 Overview</button>
+      <button class="side-link" data-gv="complaints">📥 All complaints</button>
+      <button class="side-link" data-gv="map">🗺️ Heat map</button>
+      <button class="side-link" data-gv="disaster">⛈️ Disaster prevention</button>
+      <button class="side-link" data-gv="grievances">📨 Worker grievances</button>
+      <button class="side-link" data-gv="directory">👥 Directory</button>
+    </aside>
+    <div class="main-panel">
+
+      <section id="gv-overview">
+        <div class="panel-head"><div><h2 id="gov-welcome">Overview</h2><p style="margin:0">Real-time insights across all reported issues.</p></div>
+          <button class="btn btn-outline btn-sm" id="btn-refresh-gov">Refresh</button>
+        </div>
+        <div class="kpi-grid" id="gov-kpis"></div>
+        <div class="card" id="priority-queue-card">
+          <div class="panel-head"><div><h3>🤖 Top 5 AI dispatch queue</h3><p style="margin:0">Ranked by AI score, weather forecast, environmental surroundings, then longest waiting time.</p></div></div>
+          <div id="priority-queue-list"><p>Loading priority queue…</p></div>
+        </div>
+        <div class="grid-2">
+          <div class="card"><h3>By status</h3><canvas id="chart-status" height="200"></canvas></div>
+          <div class="card"><h3>By category</h3><canvas id="chart-category" height="200"></canvas></div>
+        </div>
+        <div class="card"><h3>By region</h3><canvas id="chart-region" height="120"></canvas></div>
+      </section>
+
+      <section id="gv-complaints" class="hidden">
+        <div class="panel-head"><div><h2>All complaints</h2><p style="margin:0">Sorted by AI priority score. Assign to a field worker to dispatch.</p></div></div>
+        <div class="card" style="margin-bottom:16px">
+          <div class="form-row" style="grid-template-columns:1fr 1fr 1fr">
+            <div class="form-group" style="margin-bottom:0">
+              <label>Status</label>
+              <select id="gov-filter-status">
+                <option value="">All</option>
+                <option value="pending">Pending</option>
+                <option value="assigned">Assigned</option>
+                <option value="in_progress">In progress</option>
+                <option value="resolved">Resolved (awaiting citizen)</option>
+                <option value="verified">Verified</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom:0">
+              <label>Category</label>
+              <select id="gov-filter-category">
+                <option value="">All</option>
+                <option value="garbage">Garbage / waste</option>
+                <option value="pothole">Pothole</option>
+                <option value="streetlight">Streetlight</option>
+                <option value="water_leakage">Water leakage</option>
+                <option value="drainage">Drainage</option>
+                <option value="electrical_hazard">Electrical hazard</option>
+                <option value="road_damage">Road damage</option>
+                <option value="encroachment">Encroachment</option>
+                <option value="stray_animals">Stray animals</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom:0">
+              <label>&nbsp;</label>
+              <button class="btn btn-outline btn-block" id="btn-apply-gov-filter">Apply filters</button>
+            </div>
+          </div>
+        </div>
+        <div id="gov-complaints-list"></div>
+      </section>
+
+      <section id="gv-map" class="hidden">
+        <div class="panel-head"><h2>City heat map</h2></div>
+        <div id="gov-heatmap"></div>
+        <div class="map-legend">
+          <span><i style="background:#5B6672"></i>Pending</span>
+          <span><i style="background:#2C63C7"></i>Assigned</span>
+          <span><i style="background:#6B4FBB"></i>In progress</span>
+          <span><i style="background:#C6821E"></i>Resolved</span>
+          <span><i style="background:#2F8F5B"></i>Verified</span>
+        </div>
+      </section>
+
+      <section id="gv-disaster" class="hidden">
+        <div class="panel-head"><div><h2>Disaster prevention</h2><p style="margin:0">Live weather outlook cross-referenced with unresolved reports — act before the rain, not after.</p></div>
+          <button class="btn btn-outline btn-sm" id="btn-refresh-gov-disaster">Refresh</button>
+        </div>
+        <div id="gov-disaster-banner"></div>
+        <div class="card">
+          <h3>5-day city outlook</h3>
+          <div id="gov-disaster-forecast" class="forecast-strip"></div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>At-risk zones</h3>
+            <p class="field-hint">Sensitive locations and complaint hotspots exposed to the worst hazard in the next 3 days, ranked by severity.</p>
+            <div id="gov-disaster-zones"></div>
+          </div>
+          <div class="card">
+            <h3>Risk map</h3>
+            <div id="gov-disaster-map" style="height:340px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line)"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gv-grievances" class="hidden">
+        <div class="panel-head"><h2>Worker grievances</h2><p style="margin:0">Issues raised by field workers for your review.</p></div>
+        <div id="gov-grievances-list"></div>
+      </section>
+
+      <section id="gv-directory" class="hidden">
+        <div class="panel-head"><h2>Directory</h2></div>
+        <div class="grid-2">
+          <div class="card"><h3>Field workers</h3><div id="gov-worker-directory"></div></div>
+          <div class="card"><h3>Citizens</h3><div id="gov-citizen-directory"></div></div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============ WORKER PORTAL ============ -->
+<div id="view-worker" class="hidden">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="side-section-label">Worker portal</div>
+      <button class="side-link active" data-wv="tasks">🧰 My tasks</button>
+      <button class="side-link" data-wv="benefits">🎖️ Benefits &amp; reputation</button>
+      <button class="side-link" data-wv="grievance">📨 Raise a grievance</button>
+    </aside>
+    <div class="main-panel">
+
+      <section id="wv-tasks">
+        <div class="panel-head"><div><h2 id="worker-welcome">My tasks</h2><p style="margin:0">Sorted by priority — highest first.</p></div>
+          <button class="btn btn-outline btn-sm" id="btn-refresh-tasks">Refresh</button>
+        </div>
+        <div id="worker-tasks-list"></div>
+      </section>
+
+      <section id="wv-benefits" class="hidden">
+        <div class="panel-head"><h2>Benefits &amp; reputation</h2></div>
+        <div class="grid-2">
+          <div class="card" id="worker-summary-card"></div>
+          <div class="card">
+            <h3>How you earn points</h3>
+            <table>
+              <tr><td>Complete a verified task</td><td>+15 pts</td></tr>
+              <tr><td>Task near a school/hospital</td><td>+5 pts bonus</td></tr>
+            </table>
+            <p class="field-hint">Higher reputation unlocks recognition in the department leaderboard and priority for training opportunities.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="wv-grievance" class="hidden">
+        <div class="panel-head"><h2>Raise a grievance</h2><p style="margin:0">Send concerns directly to higher officials.</p></div>
+        <div class="grid-2">
+          <div class="card">
+            <div id="grievance-alert-slot"></div>
+            <form id="grievance-form">
+              <div class="form-group">
+                <label for="gr-subject">Subject</label>
+                <input type="text" id="gr-subject" required placeholder="e.g. Unsafe equipment, unpaid overtime">
+              </div>
+              <div class="form-group">
+                <label for="gr-desc">Description</label>
+                <textarea id="gr-desc" required placeholder="Describe the issue in detail"></textarea>
+              </div>
+              <button class="btn btn-primary btn-block" type="submit">Submit to officials</button>
+            </form>
+          </div>
+          <div class="card">
+            <h3>My submitted grievances</h3>
+            <div id="my-grievances-list"></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============ RESOLVE MODAL (worker) ============ -->
+<div class="modal-overlay hidden" id="resolve-modal">
+  <div class="modal" style="position:relative;max-width:420px">
+    <button class="btn btn-ghost btn-sm modal-close" id="resolve-close">✕</button>
+    <h3>Submit proof of completion</h3>
+    <p style="font-size:0.86rem">Upload an after-photo. This is required to mark the task resolved and awaits citizen confirmation.</p>
+    <div id="resolve-alert-slot"></div>
+    <div class="form-group">
+      <div class="file-drop" id="resolve-photo-drop">Click to add after-photo</div>
+      <input type="file" id="resolve-photo" accept="image/*" class="hidden">
+    </div>
+    <button class="btn btn-primary btn-block" id="resolve-submit-btn">Mark resolved</button>
+  </div>
+</div>
+
+<!-- ============ FEEDBACK MODAL (citizen) ============ -->
+<div class="modal-overlay hidden" id="feedback-modal">
+  <div class="modal" style="position:relative;max-width:420px">
+    <button class="btn btn-ghost btn-sm modal-close" id="feedback-close">✕</button>
+    <h3>Was this actually fixed?</h3>
+    <div id="feedback-before-after" style="display:flex;gap:10px;margin:14px 0"></div>
+    <div id="feedback-alert-slot"></div>
+    <div class="form-group">
+      <label>Rating</label>
+      <select id="fb-rating">
+        <option value="5">★★★★★ Excellent</option>
+        <option value="4">★★★★☆ Good</option>
+        <option value="3">★★★☆☆ Okay</option>
+        <option value="2">★★☆☆☆ Poor</option>
+        <option value="1">★☆☆☆☆ Not fixed</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Comment (optional)</label>
+      <textarea id="fb-comment" placeholder="Any notes for the record"></textarea>
+    </div>
+    <div style="display:flex;gap:10px">
+      <button class="btn btn-danger" style="flex:1" id="fb-reject-btn">Not fixed — reopen</button>
+      <button class="btn btn-primary" style="flex:1" id="fb-confirm-btn">Confirm fixed</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast-stack"></div>
+
+<footer>
+  <div class="container">CivicPulse — built for civic hackathon demo purposes. Not affiliated with any government body.</div>
+</footer>
+
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="vendor/chartjs/chart.umd.js"></script>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/disaster.js"></script>
+<script src="js/public.js"></script>
+<script src="js/government.js"></script>
+<script src="js/worker.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

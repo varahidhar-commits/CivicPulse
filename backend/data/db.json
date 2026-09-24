@@ -1,0 +1,201 @@
+{
+  "users": [
+    {
+      "id": "4c3c3c69-bcf7-4b06-a403-c8bfe4b6b671",
+      "name": "Priya Sundaram (Zonal Officer)",
+      "email": "gov.demo@civic.app",
+      "passwordHash": "$2a$10$CDoOgNPz1n3m9SmwfZXy5OElTKTw3e.ElrF8QDi63DVTmr5K/7d46",
+      "role": "government",
+      "region": "Central Zone",
+      "points": 0,
+      "completedTasks": 0,
+      "createdAt": "2026-08-27T19:03:59.724Z"
+    },
+    {
+      "id": "a03d33db-e87c-4855-8d70-0908e52e3509",
+      "name": "Ravi Kumar (Field Worker)",
+      "email": "worker.demo@civic.app",
+      "passwordHash": "$2a$10$tqfC99mJYRxANSaOEH6yq.V5vwOqpgcY5gZwGzs11TOMysndpvqr.",
+      "role": "worker",
+      "region": "Central Zone",
+      "points": 0,
+      "completedTasks": 0,
+      "createdAt": "2026-08-27T19:03:59.893Z"
+    },
+    {
+      "id": "330c4bd0-ea6c-491d-bbe6-dd459c51342f",
+      "name": "Ananya Rao",
+      "email": "citizen.demo@civic.app",
+      "passwordHash": "$2a$10$oErCxTARan.1UmHO.oq1h.1SGbLMA1usF28RtWh3zFL9vEYNwIbDi",
+      "role": "public",
+      "region": null,
+      "points": 12,
+      "completedTasks": 0,
+      "createdAt": "2026-08-27T19:04:00.143Z"
+    },
+    {
+      "id": "9d9ff0e3-576d-46a2-8d31-4ff9ced72f4c",
+      "name": "Anbu",
+      "email": "anbu34@gamil.com",
+      "passwordHash": "$2a$10$RXuCyWy479ULDCYcHXAy3uDUs0JYyWRtD60crvZhpoy1oxM4IAKTG",
+      "role": "public",
+      "region": null,
+      "points": 5,
+      "completedTasks": 0,
+      "createdAt": "2026-08-27T19:05:59.341Z"
+    },
+    {
+      "id": "8b1e2955-3f5a-4bf4-900e-82762082f26a",
+      "name": "Mary",
+      "email": "mary12@gamil.com",
+      "passwordHash": "$2a$10$3gHsq3/1WorzatRtDZdN3eX.0VmfhgDUz73FnYKDkwm.womcknjqe",
+      "role": "public",
+      "region": null,
+      "points": 2,
+      "completedTasks": 0,
+      "createdAt": "2026-08-27T19:11:43.013Z"
+    },
+    {
+      "id": "5d155586-e50e-4430-a8a3-c10fa0a30b1f",
+      "name": "Aashika Anbu",
+      "email": "aashi1234@gmail.com",
+      "passwordHash": "$2a$10$aC82KtKJldJVK8FA1u.7J.r0osupAo2VxnI5Eh9Tb3v6//etKwdfq",
+      "role": "government",
+      "region": "North Zone",
+      "points": 0,
+      "completedTasks": 0,
+      "createdAt": "2026-08-27T19:45:00.102Z"
+    },
+    {
+      "id": "ce61dea1-b196-4e9c-958d-61fc0fc62be5",
+      "name": "Ravi Kumar",
+      "email": "ravi789@gmail.com",
+      "passwordHash": "$2a$10$6bTDJLm8TJpvZHzaR9xUE.NK5Mbe0rKNvXSoYRXlXunEFbcyQ3tRi",
+      "role": "worker",
+      "region": "North Zone",
+      "points": 0,
+      "completedTasks": 0,
+      "createdAt": "2026-08-28T01:11:35.232Z"
+    },
+    {
+      "id": "06104994-f92f-463b-827f-bae8f2c7a1c5",
+      "name": "worker 2",
+      "email": "worker2@civic.app",
+      "passwordHash": "$2a$10$vK3bU0.ld4U5C2Mdbo0joeyp0/8ZlYKnfEfH7Ef6BqK2ZJWKN4J4a",
+      "role": "worker",
+      "region": "South Zone",
+      "points": 0,
+      "completedTasks": 0,
+      "createdAt": "2026-08-28T01:19:02.282Z"
+    },
+    {
+      "id": "0ec085e4-72b0-40fa-9653-04a3d49b5ced",
+      "name": "Aashika",
+      "email": "gov.demo2@civic.app",
+      "passwordHash": "$2a$10$bgzPKF4PIEfFmHv4bzTCUeCVa7iDQmGhhXtDU3rJ5XuyYp50aeEqC",
+      "role": "government",
+      "region": "South Zone",
+      "points": 0,
+      "completedTasks": 0,
+      "createdAt": "2026-08-28T01:20:34.574Z"
+    }
+  ],
+  "complaints": [
+    {
+      "id": "11bcae52-26c6-41a5-a377-d44a920f9d45",
+      "title": "Large pothole near school",
+      "description": "Large pothole on the road near school entrance causing danger to vehicles",
+      "category": "pothole",
+      "lat": 13.0827,
+      "lng": 80.2707,
+      "address": "ramapuram bus stop",
+      "status": "in_progress",
+      "photoBefore": "41c31f5c-68cb-49cc-bf1c-50a6fa8567a7.png",
+      "photoAfter": null,
+      "reporterId": "9d9ff0e3-576d-46a2-8d31-4ff9ced72f4c",
+      "reporterName": "Anbu",
+      "assignedWorkerId": "a03d33db-e87c-4855-8d70-0908e52e3509",
+      "assignedWorkerName": "Ravi Kumar (Field Worker)",
+      "assignedRegion": "Central Zone",
+      "confirmations": [
+        "8b1e2955-3f5a-4bf4-900e-82762082f26a"
+      ],
+      "crowdVerified": false,
+      "resolutionConfidence": null,
+      "feedbackRating": null,
+      "feedbackComment": null,
+      "createdAt": "2026-08-27T19:09:57.661Z",
+      "assignedAt": "2026-08-28T01:09:26.420Z",
+      "resolvedAt": null,
+      "verifiedAt": null,
+      "priorityScore": 13,
+      "priorityLevel": "High",
+      "nearSensitiveLocation": true,
+      "nearestSensitiveLocation": {
+        "name": "Chennai Public Higher Secondary School",
+        "type": "school",
+        "distanceMeters": 0
+      }
+    }
+  ],
+  "workerGrievances": [],
+  "sensitiveLocations": [
+    {
+      "id": "sl1",
+      "type": "school",
+      "name": "Chennai Public Higher Secondary School",
+      "lat": 13.0827,
+      "lng": 80.2707
+    },
+    {
+      "id": "sl2",
+      "type": "hospital",
+      "name": "Government General Hospital",
+      "lat": 13.0836,
+      "lng": 80.275
+    },
+    {
+      "id": "sl3",
+      "type": "school",
+      "name": "St. Mary's Matriculation School",
+      "lat": 13.0674,
+      "lng": 80.2376
+    },
+    {
+      "id": "sl4",
+      "type": "hospital",
+      "name": "Apex City Hospital",
+      "lat": 13.0569,
+      "lng": 80.2425
+    },
+    {
+      "id": "sl5",
+      "type": "school",
+      "name": "Riverside Elementary School",
+      "lat": 13.045,
+      "lng": 80.2101
+    }
+  ],
+  "regions": [
+    {
+      "id": "r1",
+      "name": "North Zone"
+    },
+    {
+      "id": "r2",
+      "name": "South Zone"
+    },
+    {
+      "id": "r3",
+      "name": "East Zone"
+    },
+    {
+      "id": "r4",
+      "name": "West Zone"
+    },
+    {
+      "id": "r5",
+      "name": "Central Zone"
+    }
+  ]
+}
